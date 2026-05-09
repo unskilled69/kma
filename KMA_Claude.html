@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KMA Oushadhashala | Pure Ayurvedic Wellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="KMA_Claude.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">
+  <div class="top-bar-left">
+    <img src="images/kma-logo.png" alt="KMA" class="top-bar-logo">
+    <span class="top-bar-brand">KMA Oushadhashala</span>
+  </div>
+  <span>📞 +91 123456789 &nbsp;|&nbsp; ✉ info@kmaoushadhashala.com</span>
+</div>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="C:\Users\adhit\OneDrive\Documents\KMA\Claude\KMA_Claude.html" class="nav-brand">KMA <span>Oushadhashala</span></a>
+  <ul class="nav-links">
+    <li><a href="C:\Users\adhit\OneDrive\Documents\KMA\about.html">About</a></li>
+    <li><a href="C:\Users\adhit\OneDrive\Documents\KMA\history.html">History</a></li>
+    <li class="dropdown">
+      <a href="#product-categories">Classical Ayurveda</a>
+      <div class="dropdown-content">
+        <a href="products.html">Arishtam</a>
+        <a href="bhasmam.html">Bhasmam</a>
+        <a href="gulika.html">Gulika</a>
+        <a href="churnam.html">Churnam</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#product-categories">Personal Care</a>
+      <div class="dropdown-content">
+        <a href="facecare.html">Face Care</a>
+        <a href="haircare.html">Hair Care</a>
+        <a href="bodycare.html">Body Care</a>
+        <a href="wellness.html">Wellness</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#brands">Our Brands</a>
+      <div class="dropdown-content">
+        <a href="himalaya.html">Himalaya</a>
+        <a href="kottakkal.html">Kottakkal</a>
+        <a href="dabur.html">Dabur</a>
+        <a href="vaidyaratnam.html">Vaidyaratnam</a>
+      </div>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CART BUTTON -->
+<button class="cart-btn" onclick="toggleCart()">🛒</button>
+<div id="cart">
+  <button class="close" onclick="toggleCart()">✕</button>
+  <h2>Your Cart</h2>
+  <ul id="cart-items">
+    <li style="color:var(--text-muted); font-size:0.85rem; padding:12px 0;">Your cart is empty.</li>
+  </ul>
+  <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+  <button onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slideshow">
+    <div class="hero-slide active" style="background-image: url('images/bg04.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/bg01.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/bg02.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/bg03.jpg');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. Kerala · Ayurvedic Heritage</div>
+    <h1>Experience the<br><em>Essence</em> of Ayurveda</h1>
+    <p>Discover natural healing through time-tested formulations, rooted in the ancient wisdom of Kerala</p>
+    <a href="#product-categories" class="hero-btn">Explore Our Collection</a>
+  </div>
+  <div class="slideshow-indicators">
+    <span class="indicator-dot active" data-slide="0"></span>
+    <span class="indicator-dot" data-slide="1"></span>
+    <span class="indicator-dot" data-slide="2"></span>
+    <span class="indicator-dot" data-slide="3"></span>
+  </div>
+</section>
+
+<!-- WHY US STRIP -->
+<div class="why-strip">
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">50+</div>
+      <div class="why-label">Years of Heritage</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">500+</div>
+      <div class="why-label">Authentic Formulas</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">4</div>
+      <div class="why-label">Trusted Brands</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">100%</div>
+      <div class="why-label">Natural Ingredients</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT CATEGORIES -->
+<section id="product-categories">
+  <div class="section-head reveal">
+    <div class="section-label"><span class="leaf-motif"></span>Our Offerings<span class="leaf-motif"></span></div>
+    <h2 class="section-title">Authentic&nbsp;Ayurvedic&nbsp;Collection</h2>
+    <p>From centuries-old Ayurvedic formulations to contemporary care crafted with the intelligence of nature.</p>
+  </div>
+  <div class="category-grid">
+    <div class="category-card reveal">
+      <div class="category-icon">🌿</div>
+      <h3>Arishtam</h3>
+      <p>Traditional liquid formulations created by natural fermentation, preserving the full potency of healing herbs.</p>
+      <a href="arishtam.html" class="explore-btn">Explore Arishtam</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">✨</div>
+      <h3>Bhasmam</h3>
+      <p>Ultra-fine medicinal powders prepared through intense purification processes for maximum bioavailability.</p>
+      <a href="bhasmam.html" class="explore-btn">Explore Bhasmam</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">💊</div>
+      <h3>Gulika</h3>
+      <p>Precisely dosed solid forms of concentrated herbs and minerals for consistent, convenient healing.</p>
+      <a href="gulika.html" class="explore-btn">Explore Gulika</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">🌾</div>
+      <h3>Churnam</h3>
+      <p>Finely ground single-herb or multi-herb blends offering versatility and traditional purity.</p>
+      <a href="churnam.html" class="explore-btn">Explore Churnam</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">🌸</div>
+      <h3>Face Care</h3>
+      <p>Revitalize your skin with natural cleansers, toners, and moisturizers balanced for every Dosha.</p>
+      <a href="facecare.html" class="explore-btn">Explore Face Care</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">🪷</div>
+      <h3>Hair Care</h3>
+      <p>Traditional oils and treatments to promote natural shine and strength from root to tip.</p>
+      <a href="haircare.html" class="explore-btn">Explore Hair Care</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">🫧</div>
+      <h3>Body Care</h3>
+      <p>Nourishing oils, scrubs, and soaks for daily self-care and holistic bodily well-being.</p>
+      <a href="bodycare.html" class="explore-btn">Explore Body Care</a>
+    </div>
+    <div class="category-card reveal">
+      <div class="category-icon">🌱</div>
+      <h3>Wellness</h3>
+      <p>Herbal supplements and tonics supporting digestive health, immunity, and a balanced mind.</p>
+      <a href="wellness.html" class="explore-btn">Explore Wellness</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="section-head reveal">
+    <div class="section-label"><span class="leaf-motif"></span>Trusted Partners<span class="leaf-motif"></span></div>
+    <h2>Our Trusted Brands</h2>
+    <p>We partner only with the most respected names in authentic Ayurvedic wellness</p>
+  </div>
+  <div class="brands-track-wrap">
+    <div class="brands-track">
+      <!-- repeated set 1 -->
+      <div class="brand-item"><img src="images/kottakkal.png" alt="Kottakkal" class="brand-logo"><span class="brand-name">Kottakkal Arya Vaidyashala</span></div>
+      <div class="brand-item"><img src="images/himayala.jpg" alt="Himalaya" class="brand-logo"><span class="brand-name">Himalaya</span></div>
+      <div class="brand-item"><img src="images/dabur.webp" alt="Dabur" class="brand-logo"><span class="brand-name">Dabur</span></div>
+      <div class="brand-item"><img src="images/kma-logo.png" alt="KMA" class="brand-logo"><span class="brand-name">KMA Oushadhashala</span></div>
+      <div class="brand-item"><img src="images/kottakkal.png" alt="Vaidyaratnam" class="brand-logo"><span class="brand-name">Vaidyaratnam</span></div>
+      <!-- repeated set 2 for seamless loop -->
+      <div class="brand-item"><img src="images/kottakkal.png" alt="Kottakkal" class="brand-logo"><span class="brand-name">Kottakkal Arya Vaidyashala</span></div>
+      <div class="brand-item"><img src="images/himayala.jpg" alt="Himalaya" class="brand-logo"><span class="brand-name">Himalaya</span></div>
+      <div class="brand-item"><img src="images/dabur.webp" alt="Dabur" class="brand-logo"><span class="brand-name">Dabur</span></div>
+      <div class="brand-item"><img src="images/kma-logo.png" alt="KMA" class="brand-logo"><span class="brand-name">KMA Oushadhashala</span></div>
+      <div class="brand-item"><img src="images/kottakkal.png" alt="Vaidyaratnam" class="brand-logo"><span class="brand-name">Vaidyaratnam</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-head reveal">
+      <div class="section-label"><span class="leaf-motif"></span>Get In Touch<span class="leaf-motif"></span></div>
+      <h2>We're Here to Help</h2>
+      <p>Have questions about our products or need guidance on your wellness journey? Reach out to us.</p>
+    </div>
+    <div class="contact-cards">
+      <div class="contact-card reveal">
+        <div class="contact-card-icon">📞</div>
+        <h4>Phone</h4>
+        <p><a href="tel:+91123456789">+91 123456789</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-card-icon">✉️</div>
+        <h4>Email</h4>
+        <p><a href="mailto:info@kmaoushadhashala.com">info@kmaoushadhashala.com</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-card-icon">📍</div>
+        <h4>Visit Us</h4>
+        <p><a href="https://maps.app.goo.gl/BQfvBJ73MVMYSvix7" target="_blank">View on Google Maps →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>KMA Oushadhashala</strong> · All Rights Reserved · Rooted in Kerala's Ayurvedic Heritage</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="KMA_Claude.js"></script>
+
+</body>
+</html>
