@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arishtam | KMA Oushadhashala</title>
+    
+    <link rel="stylesheet" href="KMA_Claude.css">
+</head>
+<body>
+
+    <div class="top-bar" id="topBar">
+  <div class="top-bar-left">
+    <img src="images/kma-logo.png" alt="KMA" class="top-bar-logo">
+    <span class="top-bar-brand">KMA Oushadhashala</span>
+  </div>
+  <span>📞 +91 123456789 &nbsp;|&nbsp; ✉ info@kmaoushadhashala.com</span>
+</div>
+<nav>
+    <div class="logo">
+        <a href="KMA_Claude.html" style="text-decoration: none; color: inherit;">KMA Oushadhashala</a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="history.html">History</a></li>
+        <li class="dropdown">
+            <a href="#product-categories">Classical Ayurveda</a>
+            <div class="dropdown-content">
+                <a href="arishtam.html">Arishtam</a>
+                <a href="bhasmam.html">Bhasmam</a>
+                <a href="gulika.html">Gulika</a>
+                <a href="churnam.html">Churnam</a>
+            </div>
+        </li>
+        <li class="dropdown">
+    <a href="#product-categories">Personal Care</a> 
+    
+    <div class="dropdown-content">
+        <a href="facecare.html">Face Care</a> 
+        <a href="haircare.html">Hair Care</a>
+        <a href="bodycare.html">Body Care</a>
+        <a href="wellness.html">Wellness</a>
+    </div>
+</li>
+<li class="dropdown">
+            <a href="#product-categories">Our Brands</a>
+            <div class="dropdown-content">
+                <a href="himalaya.html">Himalaya</a>
+                <a href="kottakkal.html">Kottakkal</a>
+                <a href="dabur.html">Dabur</a>
+                <a href="vaidyaratnam.html">Vaidyaratnam</a>
+            </div>
+        </li>
+         <li class="dropdown">
+    <a href="#">Contact</a> <div class="dropdown-content">
+        <p style="text-align: center; margin-bottom: 5px; color: #4e342e;">Call</p>
+        <a href="tel:+91123456789">+91 123456789</a>
+    </div>
+</li>
+    </ul>
+</nav>
+    
+    <button class="cart-btn" onclick="toggleCart()">🛒</button>
+<div id="cart">
+    <button class="close" onclick="toggleCart()">✖</button>
+    <h2>Your Cart</h2>
+    <ul id="cart-items">
+        <li style="color:#6b5e3c; font-size:0.95rem;">Your cart is empty.</li>
+    </ul>
+    <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+    <button onclick="checkout()" style="background:#bc986a;">Checkout</button>
+</div>
+    
+    <main class="category-page-content">
+        <h1>Arishtam</h1>
+        <p>Traditional liquid formulations created by natural fermentation to ensure quick absorption and maximum therapeutic effect on the body.</p>
+        
+        <section class="product-grid">
+
+            <div class="product" onclick="event.stopPropagation();">
+    <img src="images/dasamoolarishtam.jpg" alt="Dasamoolarishtam">
+    <h3>Dasamoolarishtam</h3>
+    <p>Ayurvedic digestive support to boost energy and vitality.</p>
+    <strong>₹999</strong>
+    <button class="add-to-cart-btn" onclick="addToCart({id: 'WL01', name: 'Dasamoolarishtam', price: 999, image: 'images/dasamoolarishtam.jpg'})">Add to Cart</button>
+</div>
+
+            <div class="product" onclick="event.stopPropagation();">
+                <img src="images/abhayarishtam.jpg" alt="Abhayarishtam">
+                <h3>Abhayarishtam</h3>
+                <p>Improve appetite, ease constipation, and relieve piles.</p>
+                <strong>₹580</strong>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'WL02', name: 'Abhayarishtam', price: 580, image: 'images/abhayarishtam.jpg'})">Add to Cart</button>
+            </div>
+            
+            <div class="product" onclick="event.stopPropagation();">
+                <img src="images/amritarishtam.jpg" alt="Amritarishtam">
+                <h3>Amritarishtam</h3>
+                <p>A remedy for different types of fevers and allergic problems.</p>
+                <strong>₹750</strong>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'WL03', name: 'Amritarishtam', price: 750, image: 'images/amritarishtam.jpg'})">Add to Cart</button>
+            </div>
+              <div class="product" onclick="event.stopPropagation();">
+                <img src="images/aswagandharishtam.jpg" alt="Aswagandharishtam">
+                <h3>Aswagandharishtam</h3>
+                <p>Boosts energy and helps relieve stress and anxiety.</p>
+                <strong>₹750</strong>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'WL03', name: 'Aswagandharishtam', price: 750, image: 'images/aswagandharishtam.jpg'})">Add to Cart</button>
+            </div>
+              <div class="product" onclick="event.stopPropagation();">
+                <img src="images/jirakadyarishtam.jpg" alt="Jirakadyarishtam">
+                <h3>Jirakadyarishtam</h3>
+                <p>Aids in the maintenance of liver function as well as lactation in breastfeeding moms.</p>
+                <strong>₹750</strong>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'WL03', name: 'Jirakadyarishtam', price: 750, image: 'images/jirakadyarishtam.jpg'})">Add to Cart</button>
+            </div>
+              <div class="product" onclick="event.stopPropagation();">
+                <img src="images/Khadirarishtam.jpg" alt="Khadirarishtam">
+                <h3>Khadirarishtam</h3>
+                <p>Enhances blood flow and helps heal acne and scars and is used in various skin disorders.</p>
+                <strong>₹750</strong>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'WL03', name: 'Khadirarishtam', price: 750, image: 'images/Khadirarishtam.jpg'})">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KMA Oushadhashala. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // CART FUNCTIONS
+        const cartElement = document.getElementById('cart');
+        const cartItemsList = document.getElementById('cart-items');
+        const cartTotalSpan = document.getElementById('cart-total');
+        const cartButton = document.querySelector('.cart-btn');
+
+        // ⭐ FIX 1: Load cart data from local storage on page load ⭐
+        let cart = JSON.parse(localStorage.getItem('kma_oushadhashala_cart')) || []; 
+
+        function updateCartDisplay() {
+    let total = 0;
+    cartItemsList.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItemsList.innerHTML = '<li style="color:#6b5e3c; font-size:0.95rem;">Your cart is empty.</li>';
+    } else {
+        cart.forEach((item) => {
+            const listItem = document.createElement('li');
+            
+            // ⭐ CRITICAL: Ensure item.name and item.image are included here
+            listItem.innerHTML = `
+                <img src="${item.image || ''}" alt="${item.name}" style="width:36px;height:36px;border-radius:50%;margin-right:8px;object-fit:cover;">
+                <span class="cart-item-name">${item.name}</span> <span class="cart-qty-controls">
+                    <button class="cart-qty-btn" onclick="event.stopPropagation(); changeQuantity('${item.id}', -1)">−</button> 
+                    <span class="cart-qty-num">${item.quantity}</span>
+                    <button class="cart-qty-btn" onclick="event.stopPropagation(); changeQuantity('${item.id}', 1)">+</button>
+                </span>
+                <span class="cart-item-price">₹${item.price * item.quantity}</span>
+                <button class="cart-item-remove" onclick="event.stopPropagation(); removeFromCart('${item.id}')" title="Remove item">🗑️</button>
+            `;
+            cartItemsList.appendChild(listItem);
+            total += item.price * item.quantity;
+        });
+    }
+    cartTotalSpan.textContent = total;
+    
+    // Save the cart after every update (for persistence across pages)
+    localStorage.setItem('kma_oushadhashala_cart', JSON.stringify(cart));
+}
+
+        function changeQuantity(productId, delta) {
+            // FIX: Ensure comparison handles string IDs correctly
+            const item = cart.find(i => String(i.id) === String(productId)); 
+            if (!item) return;
+            item.quantity += delta;
+            if (item.quantity < 1) {
+                removeFromCart(productId);
+            } else {
+                updateCartDisplay();
+            }
+        }
+
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartDisplay();
+            toggleCart();
+        }
+
+        function removeFromCart(productId) {
+            // FIX: Ensure filter handles string IDs correctly
+            cart = cart.filter(item => String(item.id) !== String(productId));
+            updateCartDisplay();
+        }
+
+        function toggleCart() {
+            cartElement.classList.toggle('open');
+        }
+
+        function dismissCart(event) {
+            if (cartElement.classList.contains('open')) {
+                const isClickInsideCart = cartElement.contains(event.target);
+                const isClickOnButton = cartButton.contains(event.target);
+
+                if (!isClickInsideCart && !isClickOnButton) {
+                    cartElement.classList.remove('open');
+                }
+            }
+        }
+        document.addEventListener('click', dismissCart);
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some products first!');
+                return;
+            }
+            localStorage.setItem('checkout_cart', JSON.stringify(cart));
+            window.open('Checkout_KMA.html', '_blank');
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    product.style.display = 'block'; 
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+        
+        // Initial call to display any existing cart items on load
+        window.onload = updateCartDisplay; 
+    const topBar = document.querySelector('.top-bar');
+    const navBar = document.querySelector('nav');
+    
+    // Variables for tracking scroll position and direction
+    let lastScrollY = window.scrollY;
+    const headerHeight = 56; // Height of your top-bar in pixels
+
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+
+        // 1. Logic for SCROLLING UP (Show ONLY the Navbar)
+        if (currentScrollY < lastScrollY && currentScrollY > headerHeight) {
+            // Scrolling UP
+            topBar.classList.add('slide-up');      // Hide Top Bar
+            navBar.classList.remove('slide-up');   // Show Nav Bar
+            navBar.classList.add('slide-down');    // Ensure Nav Bar slides up to the top of the viewport
+        } 
+        
+        // 2. Logic for SCROLLING DOWN (Hide BOTH elements)
+        else if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
+            // Scrolling DOWN
+            topBar.classList.add('slide-up');      // Hide Top Bar
+            navBar.classList.add('slide-up');      // Hide Nav Bar
+            navBar.classList.remove('slide-down');
+        } 
+        
+        // 3. Logic for NEAR THE TOP (Show BOTH elements)
+        else if (currentScrollY <= headerHeight) {
+            // Near the top of the page
+            topBar.classList.remove('slide-up');   // Show Top Bar
+            navBar.classList.remove('slide-up');   // Show Nav Bar
+            navBar.classList.remove('slide-down');
+        }
+
+        lastScrollY = currentScrollY;
+    }
+
+    // Attach the scroll handler
+    window.addEventListener('scroll', handleScroll);
+
+    </script>
+    
+  <script src="Claude/KMA_Claude.js"></script>
+</body>
+</html>

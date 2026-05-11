@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | KMA Oushadhashala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="KMA_Claude.css">
+  <style>
+
+    /* ── PAGE HEADER ─────────────────────────────────────────── */
+    .shop-header {
+      padding: 140px 40px 0;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .shop-header .section-label {
+      justify-content: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .shop-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--forest);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .shop-header h1 em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .shop-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 520px;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .shop-header-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    /* ── FILTER BAR ──────────────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 32px 40px 0;
+      max-width: 1300px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--warm-white);
+      color: var(--text-body);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--forest);
+      color: var(--amber);
+      border-color: var(--forest);
+    }
+
+    /* ── RESULTS COUNT ───────────────────────────────────────── */
+    .results-bar {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .results-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .results-count strong {
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    /* ── PRODUCT GRID ────────────────────────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+      max-width: 1300px;
+      margin: 32px auto 80px;
+      padding: 0 40px;
+    }
+
+    /* ── PRODUCT CARD ────────────────────────────────────────── */
+    .product-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card);
+      border-color: rgba(181,114,42,0.35);
+    }
+
+    /* Category badge */
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--forest);
+      color: var(--amber);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      z-index: 2;
+    }
+
+    /* Image container */
+    .product-img-wrap {
+      position: relative;
+      background: var(--ivory);
+      height: 220px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(44,26,14,0.05) 100%);
+      pointer-events: none;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Card body */
+    .product-card-content {
+      padding: 22px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .product-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--forest);
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .product-card p {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      line-height: 1.75;
+      flex: 1;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    /* Price row */
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--copper);
+      line-height: 1;
+    }
+
+    .product-price span {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+
+    /* Add to cart button */
+    .add-to-cart-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--forest);
+      color: var(--amber);
+      border: none;
+      border-radius: 10px;
+      padding: 13px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), transform 0.2s;
+      margin-top: 6px;
+    }
+
+    .add-to-cart-btn::before {
+      content: '🛒';
+      font-size: 0.85rem;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--deep-sage);
+      transform: none;
+    }
+
+    .add-to-cart-btn.added {
+      background: var(--sage);
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .page-divider {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── EMPTY STATE ─────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .empty-state p {
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .shop-header { padding: 130px 20px 0; }
+      .shop-header-inner { flex-direction: column; align-items: flex-start; }
+      .filter-bar { padding: 24px 20px 0; }
+      .results-bar { padding: 16px 20px 0; }
+      .product-grid { padding: 0 20px; gap: 16px; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">
+  <div class="top-bar-left">
+    <img src="images/kma-logo.png" alt="KMA" class="top-bar-logo">
+    <span class="top-bar-brand">KMA Oushadhashala</span>
+  </div>
+  <span>📞 +91 123456789 &nbsp;|&nbsp; ✉ info@kmaoushadhashala.com</span>
+</div>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="KMA_Web.html" class="nav-brand">KMA <span>Oushadhashala</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="history.html">History</a></li>
+    <li class="dropdown">
+      <a href="#">Classical Ayurveda</a>
+      <div class="dropdown-content">
+        <a href="arishtam.html">Arishtam</a>
+        <a href="bhasmam.html">Bhasmam</a>
+        <a href="gulika.html">Gulika</a>
+        <a href="churnam.html">Churnam</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#">Personal Care</a>
+      <div class="dropdown-content">
+        <a href="facecare.html">Face Care</a>
+        <a href="haircare.html">Hair Care</a>
+        <a href="bodycare.html">Body Care</a>
+        <a href="wellness.html">Wellness</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#">Our Brands</a>
+      <div class="dropdown-content">
+        <a href="himalaya.html">Himalaya</a>
+        <a href="kottakkal.html">Kottakkal</a>
+        <a href="dabur.html">Dabur</a>
+        <a href="vaidyaratnam.html">Vaidyaratnam</a>
+      </div>
+    </li>
+    <li><a href="products.html" style="color:var(--copper)">Shop</a></li>
+  </ul>
+</nav>
+
+<!-- CART -->
+<button class="cart-btn" onclick="toggleCart()">🛒</button>
+<div id="cart">
+  <button class="close" onclick="toggleCart()">✕</button>
+  <h2>Your Cart</h2>
+  <ul id="cart-items">
+    <li style="color:var(--text-muted); font-size:0.85rem; padding:12px 0;">Your cart is empty.</li>
+  </ul>
+  <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+  <button onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="shop-header reveal">
+  <div class="shop-header-inner">
+    <div>
+      <div class="section-label">
+        <span class="leaf-motif"></span>Shop
+      </div>
+      <h1>Authentic<br><em>Ayurvedic</em> Products</h1>
+      <p>A curated range of KMA medicines and herbs, each selected for purity, potency, and traditional healing support.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar reveal">
+  <span class="filter-label">Filter</span>
+  <button class="filter-btn active" data-filter="all">All Products</button>
+  <button class="filter-btn" data-filter="arishtam">Arishtam</button>
+  <button class="filter-btn" data-filter="bhasmam">Bhasmam</button>
+  <button class="filter-btn" data-filter="gulika">Gulika</button>
+  <button class="filter-btn" data-filter="churnam">Churnam</button>
+  <button class="filter-btn" data-filter="personal-care">Personal Care</button>
+</div>
+
+<!-- RESULTS BAR -->
+<div class="results-bar">
+  <span class="results-count"><strong id="visible-count">6</strong> products</span>
+</div>
+
+<!-- PRODUCT GRID -->
+<div class="product-grid" id="productGrid">
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/dasamoolarishtam.jpg" alt="Dasamoolarishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Dasamoolarishtam</h3>
+      <p>Traditional formula for digestive support, energy, and overall vitality.</p>
+      <div class="price-row">
+        <span class="product-price">₹999 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P01',name:'Dasamoolarishtam',price:999,image:'images/dasamoolarishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/abhayarishtam.jpg" alt="Abhayarishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Abhayarishtam</h3>
+      <p>Helps improve appetite, ease digestion, and support healthy elimination.</p>
+      <div class="price-row">
+        <span class="product-price">₹580 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P02',name:'Abhayarishtam',price:580,image:'images/abhayarishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/amritarishtam.jpg" alt="Amritarishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Amritarishtam</h3>
+      <p>Supports recovery from fever and helps calm the body during seasonal imbalance.</p>
+      <div class="price-row">
+        <span class="product-price">₹750 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P03',name:'Amritarishtam',price:750,image:'images/amritarishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/aswagandharishtam.jpg" alt="Aswagandharishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Aswagandharishtam</h3>
+      <p>Traditional energizing tonic to support stress relief and vitality.</p>
+      <div class="price-row">
+        <span class="product-price">₹750 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P04',name:'Aswagandharishtam',price:750,image:'images/aswagandharishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/jirakadyarishtam.jpg" alt="Jirakadyarishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Jirakadyarishtam</h3>
+      <p>Supports liver health and lactation, formulated with classical herbal tonics.</p>
+      <div class="price-row">
+        <span class="product-price">₹750 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P05',name:'Jirakadyarishtam',price:750,image:'images/jirakadyarishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="product-card reveal" data-category="arishtam">
+    <span class="product-badge">Arishtam</span>
+    <div class="product-img-wrap">
+      <img src="images/Khadirarishtam.jpg" alt="Khadirarishtam">
+    </div>
+    <div class="product-card-content">
+      <h3>Khadirarishtam</h3>
+      <p>Helps support skin health, blood circulation, and rejuvenation.</p>
+      <div class="price-row">
+        <span class="product-price">₹750 <span>/ bottle</span></span>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart({id:'P06',name:'Khadirarishtam',price:750,image:'images/Khadirarishtam.jpg'}, this)">Add to Cart</button>
+    </div>
+  </article>
+
+</div>
+
+<div class="empty-state" id="emptyState">
+  <p style="font-size:2rem">🌿</p>
+  <p>No products found in this category yet.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>KMA Oushadhashala</strong> · All Rights Reserved · Rooted in Kerala's Ayurvedic Heritage</p>
+</footer>
+
+<script src="KMA_Claude.js"></script>
+</body>
+</html>
